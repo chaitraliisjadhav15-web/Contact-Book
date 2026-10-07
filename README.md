@@ -1,33 +1,106 @@
-# Contact Book Application
+# Online Feedback Collector with Admin Dashboard
 
-## About the Project
+A small Flask project that collects feedback from users, stores it in SQLite,
+and displays the results in an admin dashboard.
 
-This is a simple Contact Book application developed using Python. It runs in the command line and allows users to save, view, and search contacts. The project helped me understand Python basics like functions, loops, conditional statements, and file handling.
+## Project Structure
+
+```text
+OnlineFeedbackCollector/
+│
+├── app.py
+├── requirements.txt
+├── database.db
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+│
+├── templates/
+│   ├── index.html
+│   ├── admin.html
+│   └── layout.html
+│
+└── README.md
+```
 
 ## Features
 
-- Add new contacts
-- View all saved contacts
-- Search for a contact by name
-
-## Technologies Used
-
-- Python
-- File Handling
-- Functions
-- Loops
-- Conditional Statements
+- Feedback form with name, email, rating and comments
+- Flask POST route for submitting feedback
+- SQLite database
+- Admin dashboard
+- Total feedback count
+- Average rating
+- Rating distribution chart
+- All feedback displayed in a table
+- CSV export
+- JSON API at `/api/feedback`
+- Bootstrap-based responsive UI
+- Simple JavaScript form validation
 
 ## How to Run
 
-1. Download or clone the project.
-2. Open the project folder in your terminal.
-3. Run the following command:
+### 1. Open the project folder
 
 ```bash
-python contact_book.py
+cd OnlineFeedbackCollector
 ```
 
-## Contact Storage
+### 2. Create a virtual environment
 
-The application stores all contact details in a file named `contacts.txt`, so the contacts remain saved even after the program is closed.
+Windows:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### 3. Install the required package
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Start the application
+
+```bash
+python app.py
+```
+
+The application will normally run at:
+
+```text
+http://127.0.0.1:5000
+```
+
+Open the URL in your browser.
+
+## Pages
+
+- Home / Feedback Form: `/`
+- Admin Dashboard: `/admin-dashboard`
+- CSV Export: `/export-csv`
+- JSON API: `/api/feedback`
+
+## Database
+
+The application creates the `Feedback` table automatically the first time
+the Flask application starts.
+
+The table contains:
+
+- id
+- name
+- email
+- rating
+- comments
+- date_submitted
+
+## Notes
+
+The admin dashboard is intended for the internship project demonstration.
+For a production application, proper authentication, CSRF protection,
+environment variables and deployment configuration should be added.
